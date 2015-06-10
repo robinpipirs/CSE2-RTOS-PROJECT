@@ -1,0 +1,123 @@
+[Stack]
+FillEnabled=0
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=0
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[DebugChecksum]
+Checksum=1701133140
+[Exceptions]
+StopOnUncaught=_ 0
+StopOnThrow=_ 0
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[MemoryMap]
+Enabled=0
+Base=0
+UseAuto=0
+TypeViolation=1
+UnspecRange=1
+ActionState=1
+[CodeCoverage]
+Enabled=_ 0
+[InterruptLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+SumSortOrder=0
+[DataLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+[Disassemble mode]
+mode=0
+[Breakpoints2]
+Bp0=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo-if-first.c}.33.15" 0 0 1 "" 0 ""
+Bp1=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo-if-first.c}.34.2" 0 0 1 "" 0 ""
+Bp2=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo-if-first.c}.35.9" 0 0 1 "" 0 ""
+Bp3=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo-if-first.c}.37.2" 0 0 1 "" 0 ""
+Bp4=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo-if-first.c}.38.9" 0 0 1 "" 0 ""
+Bp5=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo-if-first.c}.39.2" 0 0 1 "" 0 ""
+Bp6=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo-if-first.c}.48.15" 0 0 1 "" 0 ""
+Bp7=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo-if-first.c}.49.2" 0 0 1 "" 0 ""
+Bp8=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo-if-first.c}.50.9" 0 0 1 "" 0 ""
+Bp9=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo-if-first.c}.52.2" 0 0 1 "" 0 ""
+Bp10=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo-if-first.c}.53.9" 0 0 1 "" 0 ""
+Bp11=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo-if-first.c}.54.2" 0 0 1 "" 0 ""
+Bp12=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo-if-first.c}.57.11" 0 0 1 "" 0 ""
+Bp13=_ 0 "STD_CODE2" "{$PROJ_DIR$\context.s79}.82.1" 0 0 1 "" 0 ""
+Bp14=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo-if-first.c}.42.11" 0 0 1 "" 0 ""
+Bp15=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo.c}.25.15" 0 0 1 "" 0 ""
+Bp16=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo.c}.26.15" 0 0 1 "" 0 ""
+Bp17=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo.c}.28.2" 0 0 1 "" 0 ""
+Bp18=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo.c}.29.2" 0 0 1 "" 0 ""
+Bp19=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo.c}.30.2" 0 0 1 "" 0 ""
+Bp20=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo.c}.32.2" 0 0 1 "" 0 ""
+Bp21=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo.c}.33.2" 0 0 1 "" 0 ""
+Bp22=_ 0 "STD_CODE2" "{$PROJ_DIR$\context-demo.c}.36.2" 0 0 1 "" 0 ""
+Bp23=_ 0 "STD_CODE2" "{$PROJ_DIR$\..\Project\test_dlist.c}.125.14" 0 0 1 "" 0 ""
+Bp24=_ 0 "STD_CODE2" "{$PROJ_DIR$\..\Project\test_dlist.c}.125.14" 0 0 1 "" 0 ""
+Bp25=_ 0 "STD_CODE2" "{$PROJ_DIR$\..\Project\test_dlist.c}.125.14" 0 0 1 "" 0 ""
+Bp26=_ 0 "STD_CODE2" "{$PROJ_DIR$\..\Project\test_dlist.c}.125.14" 0 0 1 "" 0 ""
+Bp27=_ 0 "STD_CODE2" "{$PROJ_DIR$\..\Project\test_dlist.c}.125.14" 0 0 1 "" 0 ""
+Bp28=_ 0 "STD_CODE2" "{$PROJ_DIR$\..\Project\test_dlist.c}.125.14" 0 0 1 "" 0 ""
+Bp29=_ 0 "STD_CODE2" "{$PROJ_DIR$\..\Project\test_dlist.c}.125.14" 0 0 1 "" 0 ""
+Bp30=_ 0 "STD_CODE2" "{$PROJ_DIR$\..\Project\test_dlist.c}.125.14" 0 0 1 "" 0 ""
+Bp31=_ 0 "STD_CODE2" "{$PROJ_DIR$\..\Project\test_dlist.c}.125.14" 0 0 1 "" 0 ""
+Bp32=_ 0 "STD_CODE2" "{$PROJ_DIR$\..\Project\test_dlist.c}.125.14" 0 0 1 "" 0 ""
+Bp33=_ 0 "STD_CODE2" "{$PROJ_DIR$\test_kernel.c}.47.9" 0 0 1 "" 0 ""
+Bp34=_ 0 "STD_CODE2" "{$PROJ_DIR$\test_send_recieve_wait.c}.224.5" 0 0 1 "" 0 ""
+Bp35=_ 0 "STD_CODE2" "{$PROJ_DIR$\test_send_recieve_wait.c}.250.9" 0 0 1 "" 0 ""
+Bp36=_ 0 "STD_CODE2" "{$PROJ_DIR$\test_send_recieve_wait.c}.226.5" 0 0 1 "" 0 ""
+Bp37=_ 0 "STD_CODE2" "{$PROJ_DIR$\test_send_recieve_wait.c}.230.5" 0 0 1 "" 0 ""
+Bp38=_ 0 "STD_CODE2" "{$PROJ_DIR$\test_send_recieve_wait.c}.270.5" 0 0 1 "" 0 ""
+Bp39=_ 0 "STD_CODE2" "{$PROJ_DIR$\test_send_recieve_wait.c}.274.5" 0 0 1 "" 0 ""
+Bp40=_ 0 "STD_CODE2" "{$PROJ_DIR$\test_kernel.c}.368.5" 0 0 1 "" 0 ""
+Bp41=_ 0 "STD_CODE2" "{$PROJ_DIR$\test_kernel.c}.330.5" 0 0 1 "" 0 ""
+Bp42=_ 1 "STD_CODE2" "{$PROJ_DIR$\main.c}.123.5" 0 0 1 "" 0 ""
+Bp43=_ 1 "STD_CODE2" "{$PROJ_DIR$\main.c}.92.5" 0 0 1 "" 0 ""
+Count=44
+[Interrupts]
+Enabled=1
+[MemConfig]
+Base=1
+Manual=0
+Ddf=1
+TypeViol=0
+Stop=1
+[Trace1]
+Enabled=0
+ShowSource=1
+[CallStackLog]
+Enabled=0
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[Aliases]
+A0=_ "C:\Users\nicholas\Desktop\art-arm-hwdep-iar-6.30\art-arm-simulator-iar-6.30\context-demo.c" ""
+A1=_ "C:\Users\nicholas\Desktop\art-arm-hwdep-iar-6.30\art-arm-simulator-iar-6.30\context.s79" ""
+Count=2
+SuppressDialog=0
+[Simulator]
+Freq=10000000
+MultiCoreRunAll=1
+[DriverProfiling]
+Enabled=0
+Mode=1
+Graph=0
+Symbiont=0
+Exclusions=

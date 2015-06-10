@@ -1,0 +1,50 @@
+// ISRAM
+execUserPreload()
+{  
+  __message "Watchdog-timer off";
+  __writeMemory16(0xa500,0x07ffa002,"Memory");
+  __message "Initiate clock";
+  __writeMemory8(0x18,0x07ffd003,"Memory");
+  __message "Cache OFF and set SFR 7ff";
+  __writeMemory32(0x00317ff0,0x07ff1000,"Memory");
+  __message "Chip select to bank 3";  
+  __writeMemory16(0xaaaa,0x07ffb014,"Memory");    
+  __message "Fixa skrivsignal: WBE0 ";
+  __writeMemory16(0x2aaa,0x07ffb016,"Memory");
+  __message "Initiate A16-A23 ";
+  __writeMemory16(0xff00,0x07ffb012,"Memory");
+  __message "Turn off bank0 and Initiera bank 3";
+  __writeMemory32(0x0,0x07ff2000,"Memory");
+  __writeMemory32(0xE0180070,0x07ff200c,"Memory");
+  __message "Dummyskriving till bank6";
+  __writeMemory32(0x0,0x07ff2018,"Memory");
+  __message "Initiera 16 MB SDRAM på bank 7 adr 0";
+  __writeMemory32(0x20000183,0x07ff201c,"Memory");
+  __writeMemory32(0x00003a69,0x07ff2020,"Memory");  
+  __message "och kvittera  av minneskarta"; 
+}
+
+execUserReset()
+{
+ __message "Watchdog-timer off";
+  __writeMemory16(0xa500,0x07ffa002,"Memory");
+  __message "Initiate clock";
+  __writeMemory8(0x18,0x07ffd003,"Memory");
+  __message "Cache OFF and set SFR 7ff";
+  __writeMemory32(0x00317ff0,0x07ff1000,"Memory");
+  __message "Chip select to bank 3";  
+  __writeMemory16(0xaaaa,0x07ffb014,"Memory");    
+  __message "Fixa skrivsignal: WBE0 ";
+  __writeMemory16(0x2aaa,0x07ffb016,"Memory");
+  __message "Initiate A16-A23 ";
+  __writeMemory16(0xff00,0x07ffb012,"Memory");
+  __message "Turn off bank0 and Initiera bank 3";
+  __writeMemory32(0x0,0x07ff2000,"Memory");
+  __writeMemory32(0xE0180070,0x07ff200c,"Memory");
+  __message "Dummyskriving till bank6";
+  __writeMemory32(0x0,0x07ff2018,"Memory");
+  __message "Initiera 16 MB SDRAM på bank 7 adr 0";
+  __writeMemory32(0x20000183,0x07ff201c,"Memory");
+  __writeMemory32(0x00003a69,0x07ff2020,"Memory");  
+  __message "och kvittera  av minneskarta"; 
+}

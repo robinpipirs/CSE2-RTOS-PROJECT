@@ -1,0 +1,166 @@
+//**********************************************************************
+// XLINK template command file to be used with the ICCARM C Compiler
+//
+// Usage:  xlink  your_file(s)  -f lnkarm  dl????
+//
+// $Revision: 1.18 $
+//
+//**********************************************************************
+
+//**********************************************************************
+// This is an example of a link file for the ARM processor
+// series.
+//
+// In this file it is assumed that the system has the following
+// memory layout:
+//
+//    ROMSTART-   ROMEND     ROM (on any other type of non-volatile memory)
+//    RAMSTART-   RAMEND     RAM
+//
+// The following segments are defined in this link file:
+//
+// INTVEC        -- Exception vectors. Should be placed on address 0,
+//                  if linking a program to be stored in ROM. If a debugger
+//                  is used, the segment may be placed at other locations.
+// ICODE         -- Startup and exception code. Must be reachable by a B 
+//                  instruction in ARM mode (i.e. in the first 32Mbytes).
+//
+// Code segments
+// -------------
+// No code segment may exceed 4 Mbytes in size.
+// All functions with attribute __nearfunc must be linked in the same
+// 4 Mbyte area. Otherwise code segments may be placed anywhere in memory.
+//
+// NEARFUNC_x    -- Functions with attribute __nearfunc.
+// FARFUNC_x     -- Functions with attribute __farfunc.
+//
+// Where _x could be one of:
+// _T            -- Thumb code (ROM).
+// _T_I          -- Thumb code that executes in RAM, initialized by T_ID.
+// _T_ID         -- Initializer for T_I (ROM).
+// _A            -- ARM code (ROM).
+// _A_I          -- ARM code that executes in RAM, initialized by A_ID.
+// _A_ID         -- Initializer for A_I (ROM).
+//
+// Data segments
+// -------------
+// Data segments may be placed anywhere in memory.
+//
+// CSTACK        -- The stack used by C programs (USR mode).
+// IRQ_STACK     -- The stack used by IRQ servie routines.
+// SVC_STACK	 -- Teh stack used in supervisor mode
+//		    (Define other exception stacks as needed for
+//		    FIQ, ABT, UND, SYS)
+// HEAP          -- The heap used by malloc and free.
+// HUGE_AN       -- Located objects. (Absolute segment -- not declared below)
+// HUGE_y        -- Objects with the __huge attribute, which is the default.
+//
+// Where _y could be one of:
+// _Z            -- Zero initialized data (RAM).
+// _I            -- Intialized data (RAM).
+// _ID           -- Initializer for _I (ROM)
+// _N            -- Uninitialized data (e.g. RAM/EEPROM).
+// _C            -- Constants (ROM).
+//
+// NOTE: The end address of an address range is the address of the last
+// byte.
+//**********************************************************************
+
+
+//**********************************************************************
+// Define CPU
+//**********************************************************************
+
+-carm
+
+//**********************************************************************
+// Read only segments that are mapped to ROM.
+//**********************************************************************
+
+// 4 MB till programminne
+//-DROMSTART=01000000
+//-DROMEND=01F00000
+-DROMSTART=00000200
+-DROMEND=003FFFFF
+ 
+
+// Reset and exception vectors are always at address 0
+-Z(CODE)INTVEC=00-1F
+-Z(CODE)SWITAB=ROMSTART-ROMEND
+// ICODE must be reachable by a branch from INTVEC, i.e. in the low 32 Mbytes
+-Z(CODE)ICODE,DIFUNCT=ROMSTART-ROMEND
+
+// Other segments may be placed anywhere, as long as
+// NEARFUNC_{T,A,T_I,A_I} are in the same 4 Mbyte area.
+-Z(CODE)NEARFUNC_T,NEARFUNC_A=ROMSTART-ROMEND
+-Z(CODE)FARFUNC_T,FARFUNC_A=ROMSTART-ROMEND
+-Z(CONST)INITTAB,HUGE_ID,HUGE_C=ROMSTART-ROMEND
+// Initializers for code that is executed in RAM
+-Z(CONST)NEARFUNC_T_ID,NEARFUNC_A_ID=ROMSTART-ROMEND
+-Z(CONST)FARFUNC_T_ID,FARFUNC_A_ID=ROMSTART-ROMEND
+-Z(CODE)CHECKSUM=ROMSTART-ROMEND
+
+//**********************************************************************
+// Read/write segments that are mapped to RAM.
+//**********************************************************************
+
+// 4 MB till arbetsminne
+//-DRAMSTART=00000800
+//-DRAMEND=00000fff
+-DRAMSTART=00400000
+-DRAMEND=00800000
+
+
+-Z(DATA)HUGE_I,HUGE_Z=RAMSTART-RAMEND
+
+// Code executed in RAM
+-Z(DATA)NEARFUNC_T_I,NEARFUNC_A_I=RAMSTART-RAMEND
+-Z(DATA)FARFUNC_T_I,FARFUNC_A_I=RAMSTART-RAMEND
+// ICCARM produces code for __ramfunc functions in *_I segments.
+// Direct XLINK to emit the code in the corresponding *_ID segment,
+// but keep symbol and debug information associated with the *_I segment, 
+// where the code executes.
+-QNEARFUNC_T_I=NEARFUNC_T_ID
+-QNEARFUNC_A_I=NEARFUNC_A_ID
+-QFARFUNC_T_I=FARFUNC_T_ID
+-QFARFUNC_A_I=FARFUNC_A_ID
+
+//**********************************************************************
+// Stack and heap.
+//
+// NOTE:   To change the size of the stack or the heap,
+//         change the value after "+".
+//         e.g.: CSTACK+2500
+//**********************************************************************
+
+-D_CSTACK_SIZE=50
+//-D_SVC_STACK_SIZE=10
+-D_IRQ_STACK_SIZE=50
+-D_HEAP_SIZE=0005000
+
+-Z(DATA)CSTACK+_CSTACK_SIZE,/*SVC_STACK+_SVC_STACK_SIZE,*/IRQ_STACK+_IRQ_STACK_SIZE,HEAP+_HEAP_SIZE=RAMSTART-RAMEND
+
+//**********************************************************************
+// Read/write segments that are mapped to non-volatile RAM/EEPROM
+//**********************************************************************
+
+-Z(DATA)HUGE_N=RAMSTART-RAMEND
+
+//**********************************************************************
+// Elf / Dwarf support.
+//
+// Uncomment the line "-Felf" below to enable the Elf/Dwarf
+// output formats.
+// "-yn" means: Suppress DWARF debug output
+// "-yp" means: Multiple Elf program sections
+// "-ya" means: Format suitable for debuggers from ARM Ltd (also sets -p flag)
+//
+// "-Felf" etc. can be also be supplied as command line options,
+// or in the Xlink Output tab in the Embedded Workbench.
+//**********************************************************************
+
+// -Felf
+
+//**********************************************************************
+// End of File
+//**********************************************************************

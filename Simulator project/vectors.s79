@@ -1,0 +1,19 @@
+; 2002-10 Wolfgang Svensson
+
+; --------------------------------------------------------------------
+        PROGRAM ?INTERRUPT_VECTOR
+
+        EXTERN  Timer0Int        
+        SECTION MYCODE:CODE (2)
+        CODE32	
+        
+;        ORG		0x04        
+exeptions      
+        b		exeptions   ; Undefined
+        b		exeptions   ; Software interrupt
+        b		exeptions   ; Pre fetch abort
+        b		exeptions   ; Data abort
+        b		exeptions   ; Undefined
+        b		Timer0Int   ;IRQ - interrupt
+;	ENDMOD		exeptions
+	END
